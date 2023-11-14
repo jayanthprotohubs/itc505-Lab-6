@@ -72,6 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Addendum
     document.getElementById('addendum').addEventListener('click', () => {
-        mainContent.innerHTML = '<h2>Addendum</h2><p>Details about the games and their development...</p>';
+        mainContent.innerHTML = '<h2>Addendum</h2><p>check footer</p>';
     });
 });
