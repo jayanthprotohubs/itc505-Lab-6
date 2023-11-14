@@ -1,0 +1,166 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        'header header header'
+        'nav content ad'
+        'footer footer footer';
+    grid-template-rows: 100px 1fr 60px;
+    grid-template-columns: 250px 1fr 250px;
+    height: 100vh;
+}
+
+header {
+    grid-area: header;
+    background: #969dd6; /* Deep blue color */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-sidebar {
+    grid-area: nav;
+    background:#969dd6; /* Lighter blue */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-sidebar button {
+    background-color: #5c6bc0;
+    color: white;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.4s, transform 0.3s ease;
+}
+
+.menu-sidebar button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #7986cb;
+    transition: left 0.4s ease-in-out;
+    z-index: -1;
+}
+
+.menu-sidebar button:hover {
+    color: white;
+    transform: scale(1.05);
+}
+
+.menu-sidebar button:hover::after {
+    left: 0;
+}
+
+.main-content {
+    grid-area: content;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.advertisement {
+    grid-area: ad;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+}
+
+.advertisement img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.advertisement img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+footer {
+    grid-area: footer;
+    background: #283593;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Additional styles for inputs and buttons */
+input[type="number"], input[type="text"] {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #66bb6a;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Counter Game Specific Styles */
+#counterValue {
+    padding: 10px;
+    margin: 0 10px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-areas:
+            'header'
+            'content'
+            'ad'
+            'nav'
+            'footer';
+        grid-template-rows: 80px 1fr 200px 100px 60px;
+        grid-template-columns: 1fr;
+    }
+
+    .menu-sidebar, .advertisement {
+        padding: 10px;
+    }
+
+    header, footer {
+        padding: 8px;
+    }
+}
