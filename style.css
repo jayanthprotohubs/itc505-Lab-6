@@ -102,6 +102,10 @@ header {
 }
 
 footer {
+    #thanksText {
+        color: white;
+    }
+    
     grid-area: footer;
     background: #283593;
     color: #000000; 
